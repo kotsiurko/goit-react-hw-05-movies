@@ -13,7 +13,7 @@ const Reviews = () => {
     movieDB.fetchReviews(id).then(({ data }) => {
       setReview(data.results);
     });
-  }, []);
+  }, [id]);
 
   return (
     <ul>

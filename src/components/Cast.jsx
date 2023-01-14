@@ -13,7 +13,7 @@ const Cast = () => {
     movieDB.fetchCast(id).then(({ data }) => {
       setCast(data.cast);
     });
-  }, []);
+  }, [id]);
 
   return (
     <ul>

@@ -25,7 +25,7 @@ const FilmDetails = () => {
         genres: (genres.reduce((accumulator, currentValue) => accumulator + ', ' + currentValue.name, '')).substr(2),
       });
     });
-  }, []);
+  }, [id]);
 
 
   const { backdrop_path, title, release_date, vote_average, overview, genres } = film;
