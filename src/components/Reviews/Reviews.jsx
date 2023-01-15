@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { MovieDB } from '../services';
+import { MovieDB } from '../../services';
 import { useEffect, useState } from 'react';
 
 const movieDB = new MovieDB();

@@ -1,8 +1,8 @@
 import { useSearchParams } from 'react-router-dom';
-import { MovieDB } from '../services';
+import { MovieDB } from '../../services';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import FilmList from 'components/FilmList';
+import FilmList from 'components/FilmList/FilmList';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Wrapper, Input, Button } from './Movies.styled';
@@ -45,15 +45,15 @@ const Movies = () => {
       <Wrapper>
         <form onSubmit={handleSubmit}>
           <Input
-            type={"text"}
             placeholder="Search..."
+          // value={}
           />
 
           <Button type="submit">Search</Button>
 
         </form>
       </Wrapper>
-      <FilmList movies={movies} />
+      {movies.length > 0 && <FilmList movies={movies} />}
       <ToastContainer />
     </>
   );

@@ -26,7 +26,7 @@ export const Logo = styled.p`
   margin: 0;
 `;
 
-export const Link = styled(NavLink)`
+export const Navlink = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;

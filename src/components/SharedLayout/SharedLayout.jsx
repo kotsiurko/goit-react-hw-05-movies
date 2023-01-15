@@ -1,6 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import { Container, Header, Logo, Link } from './SharedLayout.styled';
+import { Container, Header, Logo, LinkNav } from './SharedLayout.styled';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const SharedLayout = () => {
   return (
@@ -13,15 +15,16 @@ export const SharedLayout = () => {
           GoFind Movie
         </Logo>
         <nav>
-          <Link to="/" end>
+          <LinkNav to="/" end>
             Home
-          </Link>
-          <Link to="/movies">Movies</Link>
+          </LinkNav>
+          <LinkNav to="/movies">Movies</LinkNav>
         </nav>
       </Header>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
+      <ToastContainer />
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { MovieDB } from '../services';
+import { MovieDB } from '../../services';
 import { useEffect, useState } from 'react';
 
 const movieDB = new MovieDB();
@@ -18,10 +18,13 @@ const Cast = () => {
   return (
     <ul>
       {cast.map(el => {
-        const posterPath = `https://image.tmdb.org/t/p/w500${el.profile_path}`;
         return (
           <li key={el.id}>
-            <img src={posterPath} alt={el.name} width="200px" />
+            <img
+              src={movieDB.getImgSrc(el.profile_path)}
+              alt={el.name}
+              width="200px"
+            />
             <p>{el.name}</p>
           </li>
         );
