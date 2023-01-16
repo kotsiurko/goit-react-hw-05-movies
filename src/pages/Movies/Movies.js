@@ -13,22 +13,6 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    const searchQuery = event.target[0].value;
-
-    if (searchQuery === '') {
-      toast.warn("Please, enter correct query!", {
-        position: toast.POSITION.TOP_CENTER
-      });
-      return;
-    }
-
-    setSearchParams({ query: searchQuery });
-  };
-
-
   useEffect(() => {
 
     const movieTitle = searchParams.get('query');
@@ -39,6 +23,21 @@ const Movies = () => {
     }
 
   }, [searchParams]);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    const searchQuery = event.target[0].value.trim().toLowerCase();
+
+    if (searchQuery === '') {
+      toast.warn("Please, enter correct query!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+      return;
+    }
+
+    setSearchParams({ query: searchQuery });
+  };
 
   return (
     <>
